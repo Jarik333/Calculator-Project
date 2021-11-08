@@ -10,6 +10,7 @@ namespace Calculator
             Console.Write("Input expression(example: \"2 + 3 * 5\"): ");
             var input = Console.ReadLine();
             SplitttingInput(input);
+            
         }
         static void SplitttingInput(string expression)
         {
@@ -32,12 +33,13 @@ namespace Calculator
             }
             finally
             {
-                CountAndGetResult(variables, operators);
+                Count(variables, operators);
+                GetResult(variables);
             }
-         } 
-        static void CountAndGetResult(List<double> variables, List<char> operators)
+         }
+        static void Count(List<double> variables, List<char> operators)
         {
-            
+
             for (int y = 0; y < operators.Count + 1; y++) {
                 for (int index = 0; index < operators.Count; index++)
                 {
@@ -58,7 +60,7 @@ namespace Calculator
                             operators.RemoveAt(index);
                             variables.RemoveAt(index);
                             variables.RemoveAt(index);
-                            variables.Insert(index, v); 
+                            variables.Insert(index, v);
                         }
                     }
                 }
@@ -88,6 +90,9 @@ namespace Calculator
                     }
                 }
             }
+        }
+        static void GetResult(List<double> variables)
+        {
             Console.WriteLine("Result:");
             try
             {
