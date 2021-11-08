@@ -9,15 +9,32 @@ namespace Calculator
         {
             Console.Write("Input expression(example: \"2 + 3 * 5\"): ");
             var input = Console.ReadLine();
-            SplitttingInput(input);
+            Calculator.SplitttingInput(input);
             
         }
-        static void SplitttingInput(string expression)
+        
+        public static void GetResult(List<double> variables)
         {
-                var parts = expression.Split(' ');
-                var variables = new List<double>();
-                var operators = new List<char>();
-            try { 
+            Console.WriteLine("Result:");
+            try
+            {
+                Console.WriteLine(variables[0]);
+            }
+            catch
+            {
+                Console.WriteLine("Not received");
+            }
+        }
+    }
+    public class Calculator
+    {
+        public static void SplitttingInput(string expression)
+        {
+            var parts = expression.Split(' ');
+            var variables = new List<double>();
+            var operators = new List<char>();
+            try
+            {
                 for (int i = 0; i < parts.Length; i += 2)
                 {
                     variables.Add(Convert.ToDouble(parts[i]));
@@ -34,13 +51,14 @@ namespace Calculator
             finally
             {
                 Simplification(variables, operators);
-                GetResult(variables);
+                Program.GetResult(variables);
             }
-         }
+        }
         static void Simplification(List<double> variables, List<char> operators)
         {
 
-            for (int y = 0; y < operators.Count + 1; y++) {
+            for (int y = 0; y < operators.Count + 1; y++)
+            {
                 for (int index = 0; index < operators.Count; index++)
                 {
                     char j = operators[index];
@@ -89,18 +107,6 @@ namespace Calculator
                         variables.Insert(u, p);
                     }
                 }
-            }
-        }
-        static void GetResult(List<double> variables)
-        {
-            Console.WriteLine("Result:");
-            try
-            {
-                Console.WriteLine(variables[0]);
-            }
-            catch
-            {
-                Console.WriteLine("Not received");
             }
         }
     }
