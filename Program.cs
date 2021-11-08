@@ -9,25 +9,33 @@ namespace Calculator
         {
             Console.Write("Input expression(example: \"2 + 3 * 5\"): ");
             var input = Console.ReadLine();
-            Sorted(input);
+            SplitttingInput(input);
         }
-        static void Sorted(string expression)
+        static void SplitttingInput(string expression)
         {
-            var parts = expression.Split(' ');
-            var variables = new List<double>();
-            var operators = new List<char>();
-            for (int i = 0; i < parts.Length; i += 2)
-            {
-                variables.Add(Convert.ToDouble(parts[i]));
+                var parts = expression.Split(' ');
+                var variables = new List<double>();
+                var operators = new List<char>();
+            try { 
+                for (int i = 0; i < parts.Length; i += 2)
+                {
+                    variables.Add(Convert.ToDouble(parts[i]));
+                }
+                for (int b = 1; b < parts.Length; b += 2)
+                {
+                    operators.Add(Convert.ToChar(parts[b]));
+                }
             }
-            for (int b = 1; b < parts.Length; b += 2)
+            catch
             {
-                 operators.Add(Convert.ToChar(parts[b])); 
+                Console.WriteLine("Invalid input format");
             }
-            
-            Count(variables, operators);
-        } 
-        static void Count(List<double> variables, List<char> operators)
+            finally
+            {
+                CountAndGetResult(variables, operators);
+            }
+         } 
+        static void CountAndGetResult(List<double> variables, List<char> operators)
         {
             
             for (int y = 0; y < operators.Count + 1; y++) {
@@ -80,13 +88,14 @@ namespace Calculator
                     }
                 }
             }
-            foreach (int a in variables)
+            Console.WriteLine("Result:");
+            try
             {
-                Console.WriteLine(a);
+                Console.WriteLine(variables[0]);
             }
-            foreach (char n in operators)
+            catch
             {
-                Console.WriteLine(n);
+                Console.WriteLine("Not received");
             }
         }
     }
