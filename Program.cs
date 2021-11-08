@@ -33,11 +33,11 @@ namespace Calculator
             }
             finally
             {
-                Count(variables, operators);
+                Simplification(variables, operators);
                 GetResult(variables);
             }
          }
-        static void Count(List<double> variables, List<char> operators)
+        static void Simplification(List<double> variables, List<char> operators)
         {
 
             for (int y = 0; y < operators.Count + 1; y++) {
