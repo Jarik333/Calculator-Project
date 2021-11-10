@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Calc { }
 public class Calculator
 {
-    public static void SplittingInput(string expression)
+    public static void Processing(string expression)
     {
         bool right = true;
         var parts = expression.Split(' ');
@@ -30,12 +30,11 @@ public class Calculator
         {
             if (right)
             {
-                Simplification(variables, operators);
-                Calc.Program.GetResult(variables);
+                Calc.Program.GetResult(variables,operators);
             }
         }
     }
-    public static void Simplification(List<double> variables, List<char> operators)
+    public static double Caunt(List<double> variables, List<char> operators)
     {
 
         for (int y = 0; y < operators.Count + 1; y++)
@@ -89,5 +88,6 @@ public class Calculator
                 }
             }
         }
+        return variables[0];
     }
 }

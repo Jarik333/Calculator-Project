@@ -10,14 +10,14 @@ namespace Calc
             
             Console.Write("Input expression(example: \"2 + 3 * 5\"): ");
             var input = Console.ReadLine();
-            Calculator.SplittingInput(input);
+            Calculator.Processing(input);
             
         }
         
-        public static void GetResult(List<double> variables)
+        public static void GetResult(List<double> variables, List<char>operators)
         {
             Console.WriteLine("Result:");
-            Console.WriteLine(variables[0]);
+            Console.WriteLine(Calculator.Caunt(variables, operators));
         }
     }
     
