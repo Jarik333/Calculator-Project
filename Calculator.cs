@@ -34,7 +34,7 @@ public class Calculator
             }
         }
     }
-    public static double Caunt(List<double> variables, List<char> operators)
+    public static double Count(List<double> variables, List<char> operators)
     {
 
         for (int y = 0; y < operators.Count + 1; y++)

@@ -17,7 +17,7 @@ namespace Calc
         public static void GetResult(List<double> variables, List<char>operators)
         {
             Console.WriteLine("Result:");
-            Console.WriteLine(Calculator.Caunt(variables, operators));
+            Console.WriteLine(Calculator.Count(variables, operators));
         }
     }
     
